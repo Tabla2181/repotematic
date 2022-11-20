@@ -457,6 +457,7 @@ def init():
             'bot', api_id=config.API_ID, api_hash=config.API_HASH).start(bot_token=config.BOT_TOKEN)
 
         print('Bot is Started!')
+        time.sleep(5)
 
         try:
             loopevent = asyncio.get_runing_loop();

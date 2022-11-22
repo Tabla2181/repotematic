@@ -219,12 +219,8 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
         pass
     if '/add' in text and username in godlist:
         usernameadd = text.split(' ')[1]
-        tl_admin_users.append(usernameadd)
+        tl_admin_users.append(YosmelGarcia)
         print(tl_admin_users)
-        db = config.space
-        db[usernameadd] = 0
-        message = await bot.send_message(ev.chat.id,'✅ El usario a sido añadido')
-        return
     if '/proxy' in text and username in godlist:
         tx = str(text).split('/proxy ')[1]
         config.static_proxy = tx
@@ -257,31 +253,9 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
         usernamedell = text.split(' ')[1]
         tl_admin_users.remove(usernamedell)
         print(tl_admin_users)
-        message = await bot.send_message(ev.chat.id,'❌ El usario a sido eliminado')
-        return
-
-    if '/info' in text:
-        message = await bot.send_message(ev.chat.id,'⚠️ 𝔼𝕤 #𝕚𝕞𝕡𝕠𝕣𝕥𝕒𝕟𝕥𝕖 𝕢𝕦𝕖 𝕔𝕠𝕟𝕠𝕫𝕔𝕒 𝕢𝕦𝕖 𝕦𝕤𝕥𝕖𝕕 𝕥𝕚𝕖𝕟𝕖 𝕢𝕦𝕖 #𝕣𝕖𝕟𝕠𝕞𝕓𝕣𝕒𝕣 𝕝𝕠𝕤 𝕒𝕣𝕔𝕙𝕚𝕧𝕠𝕤 𝕥𝕣𝕒𝕤 𝕤𝕖𝕣 𝕕𝕖𝕤𝕔𝕒𝕣𝕘𝕒𝕕𝕠𝕤 𝕡𝕒𝕣𝕒 𝕢𝕦𝕖 𝕤𝕖 𝕕𝕖𝕤𝕔𝕠𝕞𝕡𝕣𝕚𝕞𝕒𝕟 𝕤𝕚𝕟 𝕡𝕣𝕠𝕓𝕝𝕖𝕞𝕒\n\n>>>> 𝕊𝕠𝕝𝕠 𝕥𝕚𝕖𝕟𝕖 𝕢𝕦𝕖 𝕢𝕦𝕚𝕥𝕒𝕣𝕝𝕖 𝕖𝕝 .𝕣𝕒𝕣 𝕢𝕦𝕖 𝕥𝕚𝕖𝕟𝕖 𝕒𝕝 𝕗𝕚𝕟𝕒𝕝 𝕔𝕒𝕕𝕒 𝕒𝕣𝕔𝕙𝕚𝕧𝕠\n#Ejemplo:\nvideo.7z.001.rar =>> video.7z.001\n================\n\n>>>> 𝕄𝕒𝕟𝕕𝕖 𝕦𝕟 𝕖𝕟𝕝𝕒𝕔𝕖 𝕕𝕚𝕣𝕖𝕔𝕥𝕠 𝕪 𝕔𝕦𝕒𝕟𝕕𝕠 𝕝𝕠 𝕤𝕦𝕓𝕒 𝕒 𝕦𝕤𝕖 𝕖𝕝 𝕔𝕠𝕞𝕒𝕟𝕕𝕠 /𝕦𝕡 𝕞á𝕤 𝕖𝕝 𝕟ú𝕞𝕖𝕣𝕠 𝕔𝕠𝕣𝕣𝕖𝕤𝕡𝕠𝕟𝕕𝕚𝕖𝕟𝕥𝕖\n/up 0\n================\n')
-        lag = os.path.basename('lag.tgs')
-        message = await bot.send_file(ev.chat,lag)
-        return
-    if '/admin' in text:
-        username = ev.message.chat.username
-        print(username)
-        txc = str(text).split('/admin ')
-        t = '🙋‍♂️🗣 @' + username + '\n\n>> ' +  txc[1]
-        print(t)
-        message = await bot.send_message(1806431279,txc)
-        message = await bot.send_message(ev.chat.id,'📡 𝓜𝓮𝓷𝓼𝓪𝓳𝓮 𝓻𝓮𝓹𝓸𝓻𝓽𝓪𝓭𝓸 𝓪𝓵 𝓪𝓭𝓶𝓲𝓷𝓲𝓼𝓽𝓻𝓪𝓭𝓸𝓻')
-        return
     
-    if '/get' in text and username in godlist:
-        user = str(text).split('/get ')[1]
-        await send_root(bot,ev,user)
-        return
-        
     if 'http' in text:
-        message = await bot.send_message(ev.chat.id,'#ℙ𝕣𝕠𝕔𝕖𝕤𝕒𝕟𝕕𝕠_𝔼𝕟𝕝𝕒𝕔𝕖𝕤')
+        message = await bot.send_message(ev.chat.id,'⏳ℙ𝕣𝕠𝕔𝕖𝕤𝕒𝕟𝕕𝕠 𝔼𝕟𝕝𝕒𝕔𝕖...🔗')
         dl = Downloader(config.ROOT_PATH + username + '/')
         file = await dl.download_url(text,progressfunc=download_progress,args=(bot,ev,message),proxies=proxies)
         if file:
@@ -289,16 +263,17 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
                 await bot.delete_messages(ev.chat,message)
                 await send_root(bot,ev,username)
             else:
-                await bot.edit_message(ev.chat,message,text='💢Error De Enlace🔗')
+                await bot.edit_message(ev.chat,message,text='💢𝔈𝔯𝔯𝔬𝔯 𝔇𝔢 𝔈𝔫𝔩𝔞𝔠𝔢🔗')
         else:
-             await bot.edit_message(ev.chat,message,text='💢Error De Enlace🔗')
+             await bot.edit_message(ev.chat,message,text='💢𝔈𝔯𝔯𝔬𝔯 𝔇𝔢 𝔈𝔫𝔩𝔞𝔠𝔢🔗')
         return
 
     if '/ls' in text:
         await send_root(bot,ev,username)
         return
+
     if '/rm' in text:
-        message = await bot.send_message(ev.chat.id,'#ℂ𝕠𝕞𝕖𝕟𝕫𝕒𝕟𝕕𝕠 ....')
+        message = await bot.send_message(ev.chat.id,'🗑𝔼𝕞𝕡𝕖𝕫𝕒𝕟𝕕𝕠 𝕡𝕒𝕣𝕒 𝕓𝕠𝕣𝕣𝕒𝕣 𝕖𝕝 𝕒𝕣𝕔𝕙𝕚𝕧𝕠...')
         text = str(text).replace('/rm ','')
         index = 0
         range = 1
@@ -322,7 +297,7 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
         return
 
     if '/rar' in text:
-        message = await bot.send_message(ev.chat.id,'𝓐𝓷𝓪𝓵𝓲𝔃𝓪𝓷𝓭𝓸 𝓼𝓸𝓵𝓲𝓬𝓲𝓽𝓾𝓭 ...')
+        message = await bot.send_message(ev.chat.id,'📡ℙ𝕣𝕠𝕔𝕖𝕤𝕒𝕟𝕕𝕠 𝔼𝕟𝕝𝕒𝕔𝕖...')
         await compress(bot,ev,text,message,username)
 
     if '/up' in text:
@@ -341,10 +316,10 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
                 txtname = cmdtokens[2]
         except:
             pass
-        message = await bot.send_message(ev.chat.id,'🛠𝕻𝖗𝖔𝖈𝖊𝖘𝖆𝖓𝖉𝖔...')
+        message = await bot.send_message(ev.chat.id,'📡ℙ𝕣𝕠𝕔𝕖𝕤𝕒𝕟𝕕𝕠 𝔼𝕟𝕝𝕒𝕔𝕖...')
         listdir = await compress(bot,ev,text,message,username)
         try:
-            await bot.edit_message(ev.chat,message,text=f'🖥𝕮𝖗𝖊𝖆𝖓𝖉𝖔 𝕮𝖚𝖊𝖓𝖙𝖆...')
+            await bot.edit_message(ev.chat,message,text=f'⚡️𝐋𝐈𝐒𝐓𝐎 𝐏𝐀𝐑𝐀 𝐒𝐔𝐁𝐈𝐑⚡️...')
             session:RepoUploader = await repouploader.create_session(config.PROXY)
             resultlist = []
             txtsendname = str(listdir[0]).split('/')[-1].split('.')[0].split('_')[0] + '.txt'
@@ -353,9 +328,9 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
                   ffname = str(fi).split('/')[-1]
                   fsize = get_file_size(ffullpath)
                   if fsize>config.SPLIT_FILE:
-                      await bot.edit_message(ev.chat,message,text=f'{ffname} 𝕯𝖊𝖒𝖆𝖘𝖎𝖆𝖉𝖔 𝕲𝖗𝖆𝖓𝖉𝖊, 𝕯𝖊𝖇𝖊 𝕮𝖔𝖒𝖕𝖗𝖎𝖒𝖎𝖗\n𝕾𝖊 𝕮𝖆𝖓𝖈𝖊𝖑𝖔 𝕷𝖆 𝕾𝖚𝖇𝖎𝖉𝖆')
+                      await bot.edit_message(ev.chat,message,text=f'{ffname} 𝕬𝖗𝖈𝖍𝖎𝖛𝖔 𝕯𝖊𝖒𝖆𝖘𝖎𝖆𝖉𝖔 𝕲𝖗𝖆𝖓𝖉𝖊,𝕯𝖊𝖇𝖊 𝕮𝖔𝖒𝖕𝖗𝖎𝖒𝖎𝖗\n𝕷𝖆𝖒𝖊𝖓𝖙𝖆𝖇𝖑𝖊𝖒𝖊𝖓𝖙𝖊 𝕾𝖊 𝕮𝖆𝖓𝖈𝖊𝖑𝖔 𝕷𝖆 𝕾𝖚𝖇𝖎𝖉𝖆')
                       return
-                  await bot.edit_message(ev.chat,message,text=f'📤𝕾𝖚𝖇𝖎𝖊𝖓𝖉𝖔 {ffname}...')
+                  await bot.edit_message(ev.chat,message,text=f'⬆️𝕊𝕦𝕓𝕚𝕖𝕟𝕕𝕠 𝔸 𝕃𝕒 ℕ𝕦𝕓𝕖 {ffname}...')
                   result:RepoUploaderResult = None
                   def uploader_func():
                       result = session.upload_file(ffullpath,progress_func=upload_progress,progress_args=(bot,ev,message,loop))
@@ -385,18 +360,18 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
             urls = []
             for item in resultlist:
                 urls.append(item.url)
-            await bot.edit_message(ev.chat,message,text=f'🖇𝕲𝖊𝖓𝖊𝖗𝖆𝖓𝖉𝖔 𝖃𝕯𝕷𝖎𝖓𝖐𝖘📝...')
+            await bot.edit_message(ev.chat,message,text=f'🔗𝐏𝐑𝐄𝐏𝐀𝐑𝐀𝐍𝐃𝐎 𝐀𝐑𝐂𝐇𝐈𝐕𝐎 𝐗𝐃𝐈𝐍𝐊...')
             data = xdlink.parse(urls)
             if data:
                 txtfile.write(data)
             else:
-                txtfile.write('🅴🆁🆁🅾🆁 🆇🅳🅻🅸🅽🅺 🅿🅰🆁🆂🅴 🆄🆁🅻🆂')
+                txtfile.write('ERROR XDLINK PARSE URLS')
             txtfile.close()
             await bot.delete_messages(ev.chat,message)
             await bot.send_file(ev.chat,txtsendname,
                                 caption=f'{txtsendname}',
                                 thumb='thumb.png',
-                                buttons=[Button.url('🖥Rey Michel','https://t.me/reymichel2009')])
+                                buttons=[Button.url('Soporte','https://t.me/YosmelGarcia')])
             for fitem in listdir:
                 try:
                     os.unlink(fitem)

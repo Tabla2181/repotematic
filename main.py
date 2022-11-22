@@ -22,8 +22,8 @@ from pydownloader.downloader import Downloader
 import shorturl
 import xdlink
 
-tl_admin_users = ['Abolanos3','Elnietodecacha'] #Poner aqui los user con acceso permanente
-godlist = ['Abolanos3', 'Elnietodecacha'] #Poner aqui los admin 
+tl_admin_users = ['YosmelGarcia','YosmelGarcia','user3'] #
+godlist = ['YosmelGarcia','RichZC','admin3'] #
 
 async def get_root(username):
     if os.path.isdir(config.ROOT_PATH+username)==False:
@@ -32,7 +32,7 @@ async def get_root(username):
 
 async def send_root(bot,ev,username):
     listdir = await get_root(username)
-    reply = f'📄 {username}/ ({len(listdir)} archivos) 📄\n\n'
+    reply = f'📄 {username}/ ({len(listdir)} ⛓𝐋𝐈𝐒𝐓𝐀𝐃𝐎 𝐃𝐄 𝐀𝐑𝐂𝐇𝐈𝐕𝐎𝐒⛓) 📄\n\n'
     i=-1
     for item in listdir:
         i+=1
@@ -76,13 +76,13 @@ async def download_progress(dl, filename, currentBits, totalBits, speed, totalti
         message = args[2]
 
         if True:
-            msg = '========>>> #𝔻𝕖𝕤𝕔𝕒𝕣𝕘𝕒𝕟𝕕𝕠 <<<<========\n'
-            msg += '⚜️ ' + filename + ' ⚜️ '
+            msg = '⬇️ 𝕯𝖊𝖘𝖈𝖆𝖗𝖌𝖆𝖓𝖉𝖔 𝖆𝖗𝖈𝖍𝖎𝖛𝖔....\n'
+            msg += '📁 𝕯𝖊𝖘𝖈𝖆𝖗𝖌𝖆𝖓𝖉𝖔 𝖆𝖗𝖈𝖍𝖎𝖛𝖔: ' + filename + ''
             msg += '\n' + text_progres(currentBits, totalBits) + ' ' + str(porcent(currentBits, totalBits)) + '%\n' + '\n'
-            msg += '🌐 #𝔻𝕖𝕤𝕔𝕒𝕣𝕘𝕒𝕕𝕠 =>> ' + sizeof_fmt(currentBits) + ' de ' + sizeof_fmt(totalBits) + '\n'
-            msg += '🌐 #𝕍𝕖𝕝𝕠𝕔𝕚𝕕𝕒𝕕 =>> ' + sizeof_fmt(speed) + '/s\n'
-            msg += '🌐 #𝕋𝕚𝕖𝕞𝕡𝕠 =>> ' + str(time.strftime('%H:%M:%S', time.gmtime(totaltime))) + 's\n'
-            msg += '========>>> #𝔻𝕖𝕤𝕔𝕒𝕣𝕘𝕒𝕟𝕕𝕠 <<<<========\n\n'
+            msg += '🗂 𝕿𝖔𝖙𝖆𝖑: ' + sizeof_fmt(totalBits) + '\n'
+            msg += '⏬ 𝕯𝖊𝖘𝖈𝖆𝖗𝖌𝖆𝖉𝖔: ' + sizeof_fmt(currentBits) + '\n'
+            msg += '🔋 𝖁𝖊𝖑𝖔𝖈𝖎𝖉𝖆𝖉: ' + sizeof_fmt(speed) + '/s\n'
+            msg += '⏱ 𝕿𝖎𝖊𝖒𝖕𝖔 𝖉𝖊 𝕯𝖊𝖘𝖈𝖆𝖗𝖌𝖆: ' + str(time.strftime('%H:%M:%S', time.gmtime(totaltime))) + 's\n\n'
             await bot.edit_message(ev.chat,message,text=msg)
 
     except Exception as ex:
@@ -99,20 +99,22 @@ def upload_progress(filename, currentBits, totalBits, speed, totaltime, args):
         loop = args[3]
 
         if True:
-            msg = '========>>> #𝕊𝕦𝕓𝕚𝕖𝕟𝕕𝕠 <<<<========\n'
-            msg += '⚜️ ' + filename + ' ⚜️ '
+            msg = '📡𝕊𝕌𝔹𝕀𝔼ℕ𝔻𝕆 𝔸ℝℍℂ𝕀𝕍𝕆 𝔸 𝕃𝔸 ℕ𝕌𝔹𝔼☁️....\n'
+            msg += '📥 𝔄𝔯𝔠𝔥𝔦𝔳𝔬: ' + filename + ''
             msg += '\n' + text_progres(currentBits, totalBits) + ' ' + str(porcent(currentBits, totalBits)) + '%\n' + '\n'
-            msg += '🌐 #𝕊𝕦𝕓𝕚𝕕𝕠 =>> ' + sizeof_fmt(currentBits) + ' de ' + sizeof_fmt(totalBits) + '\n'
-            msg += '🌐 #𝕍𝕖𝕝𝕠𝕔𝕚𝕕𝕒𝕕 =>> ' + sizeof_fmt(speed) + '/s\n'
-            msg += '🌐 #𝕋𝕚𝕖𝕞𝕡𝕠 =>> ' + str(time.strftime('%H:%M:%S', time.gmtime(totaltime))) + 's\n'
-            msg += '========>>> #𝕊𝕦𝕓𝕚𝕖𝕟𝕕𝕠 <<<<========\n\n'
-            STORE_UPLOADER[filename] = msg
-
+            msg += '☑𝕿𝖔𝖙𝖆𝖑: ' + sizeof_fmt(totalBits) + '\n'
+            msg += '☑ 𝕾𝖚𝖇𝖎𝖉𝖔: ' + sizeof_fmt(currentBits) + '\n'
+            msg += '🔋 𝖁𝖊𝖑𝖔𝖈𝖎𝖉𝖆𝖉: ' + sizeof_fmt(speed) + '/s\n'
+            msg += '⏱𝕿𝖎𝖊𝖒𝖕𝖔 𝖉𝖊 𝕯𝖊𝖘𝖈𝖆𝖗𝖌𝖆: ' + str(time.strftime('%H:%M:%S', time.gmtime(totaltime))) + 's\n\n'
+            global SECOND
+            if SECOND != time.localtime().tm_sec:
+                STORE_UPLOADER[filename] = msg
+            SECOND = time.localtime().tm_sec
     except Exception as ex:
         print(str(ex))
 
 async def compress(bot,ev,text,message,username):
-        await  bot.edit_message(ev.chat,message,'#ℂ𝕠𝕞𝕡𝕣𝕚𝕞𝕚𝕖𝕟𝕕𝕠...')
+        await  bot.edit_message(ev.chat,message,'📚𝐂𝐎𝐌𝐏𝐑𝐈𝐌𝐈𝐄𝐍𝐃𝐎 𝐀𝐑𝐂𝐇𝐈𝐕𝐎...')
         text = str(text).replace('/rar ','')
         index = 0
         range = 0
@@ -136,7 +138,6 @@ async def compress(bot,ev,text,message,username):
             for item in zipsplit:
                     if i>=len(zipsplit)-1:continue
                     zipname += item
-                    print('zipname-item: ',zipname)
                     i+=1
             totalzipsize=0
             iindex = index
@@ -145,7 +146,6 @@ async def compress(bot,ev,text,message,username):
                 totalzipsize+=get_file_size(ffullpath)
                 iindex+=1
             zipname = config.ROOT_PATH + username + '/' + zipname
-            print('zipname',zipname)
             multifile = zipfile.MultiFile(zipname,config.SPLIT_FILE)
             zip = zipfile.ZipFile(multifile, mode='w')
             while index<range:
@@ -171,7 +171,7 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
 
     #if username not in config.ACCES_USERS:
     if username not in tl_admin_users:
-        await bot.send_message(ev.chat.id,'꧁•⊹٭ 🆃🅴 🅵🅰🅻🆃🅰 🅲🅰🅻🅻🅴 🅲🆁🅰🅲🅺 ٭⊹•꧂')
+        await bot.send_message(ev.chat.id,'😐ℕ𝕆 𝕋𝕀𝔼ℕ𝔼𝕊 𝔸𝕊ℂ𝔼𝕊𝕆 ℂ𝕆ℕ𝕋𝔸ℂ𝕋𝔸 𝔸 ℂ𝕆ℕ 𝕄𝕀 𝔻𝔼𝕊𝔸ℝℝ𝕆𝕃𝔸𝔻𝕆ℝ😐:@YosmelGarcia')
         return
 
     if not os.path.isdir(config.ROOT_PATH + username):
@@ -179,7 +179,7 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
 
     try:
         if ev.message.file:
-            message = await bot.send_message(ev.chat.id,'𝓐𝓷𝓪𝓵𝓲𝔃𝓪𝓷𝓭𝓸 𝓼𝓸𝓵𝓲𝓬𝓲𝓽𝓾𝓭 ...')
+            message = await bot.send_message(ev.chat.id,'⏳ℙ𝕣𝕠𝕔𝕖𝕤𝕒𝕟𝕕𝕠 𝔸𝕣𝕔𝕙𝕚𝕧𝕠...📄')
             filename = ev.message.file.id + ev.message.file.ext
             if ev.message.file.name:
                 filename = ev.message.file.name
@@ -206,11 +206,12 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
                 pass
             filesave.close()
             await bot.delete_messages(ev.chat,message)
-            #await send_root(bot,ev,username)
+            await send_root(bot,ev,username)
             return
             pass
     except Exception as ex:
         pass
+
 
     if '/start' in text:
         reply = '————————》<a href="https://t.me/Abolanos3">Abolanos3</a>《—————————\n'

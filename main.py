@@ -341,37 +341,21 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
                 txtname = cmdtokens[2]
         except:
             pass
-        message = await bot.send_message(ev.chat.id,'𝓐𝓷𝓪𝓵𝓲𝔃𝓪𝓷𝓭𝓸 𝓼𝓸𝓵𝓲𝓬𝓲𝓽𝓾𝓭 ...')
+        message = await bot.send_message(ev.chat.id,'🛠𝕻𝖗𝖔𝖈𝖊𝖘𝖆𝖓𝖉𝖔...')
         listdir = await compress(bot,ev,text,message,username)
-        print('listdir: ',listdir)
         try:
-            await bot.edit_message(ev.chat,message,text=f'🔑 𝓡𝓮𝓪𝓵𝓲𝔃𝓪𝓷𝓭𝓸 #𝓢𝓸𝓵𝓲𝓬𝓲𝓽𝓾𝓭 𝓭𝓮 𝓐𝓬𝓬𝓮𝓼𝓸')
+            await bot.edit_message(ev.chat,message,text=f'🖥𝕮𝖗𝖊𝖆𝖓𝖉𝖔 𝕮𝖚𝖊𝖓𝖙𝖆...')
             session:RepoUploader = await repouploader.create_session(config.PROXY)
             resultlist = []
-            filesize = []
             txtsendname = str(listdir[0]).split('/')[-1].split('.')[0].split('_')[0] + '.txt'
             for fi in listdir:
-                  dr = fi.split('/')
-                  diir = dr[0] + '/' +dr[1]
-                  trt = dr[2].split('.part')[1].replace('_.rar','')
-                  if int(trt)>9:
-                      ra = dr[2].replace('part','7z.0').replace('_.rar','.rar')
-                  else:
-                      ra = dr[2].replace('part','7z.00').replace('_.rar','.rar')
-                  old_file = diir + '/' + dr[2]
-                  new_file = diir + '/' + ra
+                  ffullpath = fi
                   ffname = str(fi).split('/')[-1]
-                  cname = os.rename(old_file,new_file)
-                  ffullpath = new_file
-                  print('ffullpath: ',ffullpath)
-                  ffname = str(new_file).split('/')[-1]
-                  print('ffname: ',ffname)
                   fsize = get_file_size(ffullpath)
-                  filesize.append(fsize)
                   if fsize>config.SPLIT_FILE:
-                      await bot.edit_message(ev.chat,message,text=f'{ffname} Demasiado Grande, Debe Comprimir\nSe Cancelo La Subida')
+                      await bot.edit_message(ev.chat,message,text=f'{ffname} 𝕯𝖊𝖒𝖆𝖘𝖎𝖆𝖉𝖔 𝕲𝖗𝖆𝖓𝖉𝖊, 𝕯𝖊𝖇𝖊 𝕮𝖔𝖒𝖕𝖗𝖎𝖒𝖎𝖗\n𝕾𝖊 𝕮𝖆𝖓𝖈𝖊𝖑𝖔 𝕷𝖆 𝕾𝖚𝖇𝖎𝖉𝖆')
                       return
-                  await bot.edit_message(ev.chat,message,text=f'#𝓢𝓤𝓑𝓘𝓔𝓝𝓓𝓞 ... {ffname}...')
+                  await bot.edit_message(ev.chat,message,text=f'📤𝕾𝖚𝖇𝖎𝖊𝖓𝖉𝖔 {ffname}...')
                   result:RepoUploaderResult = None
                   def uploader_func():
                       result = session.upload_file(ffullpath,progress_func=upload_progress,progress_args=(bot,ev,message,loop))
@@ -401,49 +385,22 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
             urls = []
             for item in resultlist:
                 urls.append(item.url)
-            await bot.edit_message(ev.chat,message,text=f'⚒ ℂ𝕠𝕟𝕤𝕥𝕣𝕦𝕪𝕖𝕟𝕕𝕠 𝕖𝕟𝕝𝕒𝕔𝕖𝕤 ⚒')
-            txu = ''
-            for ur in urls:
-                txu+= str(ur) + '\n'
-            txtfile.write(txu)
-            txtfile.close()
+            await bot.edit_message(ev.chat,message,text=f'🖇𝕲𝖊𝖓𝖊𝖗𝖆𝖓𝖉𝖔 𝖃𝕯𝕷𝖎𝖓𝖐𝖘📝...')
             data = xdlink.parse(urls)
             if data:
                 txtfile.write(data)
             else:
-                txtfile.write('Error al Escribir')
+                txtfile.write('🅴🆁🆁🅾🆁 🆇🅳🅻🅸🅽🅺 🅿🅰🆁🆂🅴 🆄🆁🅻🆂')
             txtfile.close()
-            tm = 0
-            for x in filesize:
-                tm+= x
-            print('tamao: ',tm)
-            spac = tm / 1000
-            t = str(spac)
-            inl = t[:1]
-            fnl = t[1:3]
-            space = str(inl) + '.' + str(fnl)
-            tspace = config.space
-            tspace[username] = tspace[username] + spac
-            filesize = []
-            txtinfo = '====>>> #𝔽𝕚𝕟𝕒𝕝𝕚𝕫𝕒𝕕𝕠 <<<<====\n#ℕ𝕒𝕞𝕖: ' + txtsendname + '\n\n>>>> ' + str(space) + 'mb 𝕖𝕟 #ℙ𝕒𝕣𝕥𝕖𝕤 𝕕𝕖 99  𝕞𝕓\n====>>> #𝔽𝕚𝕟𝕒𝕝𝕚𝕫𝕒𝕕𝕠 <<<<===='
-            username = ev.message.chat.username
-            premium = os.path.basename('especial.tgs')
             await bot.delete_messages(ev.chat,message)
             await bot.send_file(ev.chat,txtsendname,
-                                caption=f'{txtinfo}',
+                                caption=f'{txtsendname}',
                                 thumb='thumb.png',
-                                buttons=[Button.url('|ıllıll Rey Michel |ıllıllı','https://t.me/reymichel2009')])
-            await bot.send_file(ev.chat,premium)
-            #await bot.send_file('-1001831303559',txtsendname,
-                                #caption=f'{txtinfo}',
-                                #thumb='thumb.png',
-                                #buttons=[Button.url('@' +username,'https://t.me/' + username)])
+                                buttons=[Button.url('🖥Rey Michel','https://t.me/reymichel2009')])
             for fitem in listdir:
                 try:
                     os.unlink(fitem)
-                except Exception as ex:
-                    print(str(ex))
-                    pass
+                except:pass
             os.unlink(txtsendname)
         except Exception as ex:
              await bot.send_message(ev.chat.id,str(ex))
@@ -457,7 +414,6 @@ def init():
             'bot', api_id=config.API_ID, api_hash=config.API_HASH).start(bot_token=config.BOT_TOKEN)
 
         print('Bot is Started!')
-        time.sleep(5)
 
         try:
             loopevent = asyncio.get_runing_loop();
@@ -465,13 +421,18 @@ def init():
             try:
                 loopevent = asyncio.get_event_loop();
             except:
-                loopevent = asyncio.new_event_loop();
+                loopevent = None
 
         @async_worker
         @bot.on(events.NewMessage()) 
         async def process(ev: events.NewMessage.Event):
            await onmessage(bot,ev,loopevent)
-          
+           #await onmessage(bot,ev)
+           #loopevent.create_task(onmessage(bot,ev,loopevent))
+           #t = ThreadAsync(loop=loopevent,targetfunc=onmessage,args=(loopevent,bot,ev))
+           #t.start()
+
+
         loopevent.run_forever()
     except Exception as ex:
         init()

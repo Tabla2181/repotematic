@@ -8,19 +8,19 @@
     },
     "proxy_enc": {
       "description": "Proxy Encriptado",
-      "value": "http://KHGHJHYHJHLHFHYHDHGHYHJHHHCHRHDHLHDHLH"
+      "value": "http://KHGEJHYFJHLIFKYEDDGGYHKDDILIRFDKLEDDLD"
     },
     "api_id": {
       "description": "Api Id de telegram",
-      "value": "18641760"
+      "value": "9902519"
     },
     "api_hash": {
       "description": "Api Hash de telegram",
-      "value": "b7b026ce9d1d36400c02dc21d8df53a3"
+      "value": "9d8097d05bbc90a6ed2a7a81abcd4e8a"
     },
     "tl_admin_user": {
       "description": "Usuarios Permitidos",
-      "value": "obisoftt"
+      "value": "Abolanos3"
     }
   }
 }

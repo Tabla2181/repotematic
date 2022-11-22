@@ -22,9 +22,8 @@ from pydownloader.downloader import Downloader
 import shorturl
 import xdlink
 
-tl_admin_users = ['YosmelGarcia','YosmelGarcia','user3'] #
-godlist = ['YosmelGarcia','RichZC','admin3'] #
-
+tl_admin_users = ['Abolanos3','Elnietodecacha'] #Poner aqui los user con acceso permanente
+godlist = ['Abolanos3', 'Elnietodecacha']
 async def get_root(username):
     if os.path.isdir(config.ROOT_PATH+username)==False:
         os.mkdir(config.ROOT_PATH+username)
@@ -171,7 +170,7 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
 
     #if username not in config.ACCES_USERS:
     if username not in tl_admin_users:
-        await bot.send_message(ev.chat.id,'😐ℕ𝕆 𝕋𝕀𝔼ℕ𝔼𝕊 𝔸𝕊ℂ𝔼𝕊𝕆 ℂ𝕆ℕ𝕋𝔸ℂ𝕋𝔸 𝔸 ℂ𝕆ℕ 𝕄𝕀 𝔻𝔼𝕊𝔸ℝℝ𝕆𝕃𝔸𝔻𝕆ℝ😐:@YosmelGarcia')
+        await bot.send_message(ev.chat.id,'😐ℕ𝕆 𝕋𝕀𝔼ℕ𝔼𝕊 𝔸𝕊ℂ𝔼𝕊𝕆 ℂ𝕆ℕ𝕋𝔸ℂ𝕋𝔸 𝔸 ℂ𝕆ℕ 𝕄𝕀 𝔻𝔼𝕊𝔸ℝℝ𝕆𝕃𝔸𝔻𝕆ℝ😐:@Abolan9s3')
         return
 
     if not os.path.isdir(config.ROOT_PATH + username):

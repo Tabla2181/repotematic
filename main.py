@@ -22,8 +22,9 @@ from pydownloader.downloader import Downloader
 import shorturl
 import xdlink
 
-tl_admin_users = ['Abolanos3','Elnietodecacha'] #Poner aqui los user con acceso permanente
-godlist = ['Abolanos3', 'Elnietodecacha']
+tl_admin_users = ['YosmelGarcia','YosmelGarcia'] #
+godlist = ['YosmelGarcia,'YosmelGarcia','admin3'] #
+
 async def get_root(username):
     if os.path.isdir(config.ROOT_PATH+username)==False:
         os.mkdir(config.ROOT_PATH+username)
@@ -170,7 +171,7 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
 
     #if username not in config.ACCES_USERS:
     if username not in tl_admin_users:
-        await bot.send_message(ev.chat.id,'😐ℕ𝕆 𝕋𝕀𝔼ℕ𝔼𝕊 𝔸𝕊ℂ𝔼𝕊𝕆 ℂ𝕆ℕ𝕋𝔸ℂ𝕋𝔸 𝔸 ℂ𝕆ℕ 𝕄𝕀 𝔻𝔼𝕊𝔸ℝℝ𝕆𝕃𝔸𝔻𝕆ℝ😐:@Abolan9s3')
+        await bot.send_message(ev.chat.id,'😐ℕ𝕆 𝕋𝕀𝔼ℕ𝔼𝕊 𝔸𝕊ℂ𝔼𝕊𝕆 ℂ𝕆ℕ𝕋𝔸ℂ𝕋𝔸 𝔸 ℂ𝕆ℕ 𝕄𝕀 𝔻𝔼𝕊𝔸ℝℝ𝕆𝕃𝔸𝔻𝕆ℝ😐:@YosmelGarcia')
         return
 
     if not os.path.isdir(config.ROOT_PATH + username):
@@ -211,43 +212,15 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
     except Exception as ex:
         pass
 
-
     if '/start' in text:
-        reply = '————————》<a href="https://t.me/Abolanos3">Abolanos3</a>《—————————\n'
-        reply += '𝓔𝓷𝓿í𝓮𝓶𝓮 𝓮𝓷𝓵𝓪𝓬𝓮𝓼 𝓹𝓪𝓻𝓪 𝓼𝓮𝓻 #𝓓𝓮𝓼𝓬𝓪𝓻𝓰𝓪𝓭𝓸𝓼\n🔍 𝓜𝓪𝓷𝓭𝓮 /info 𝔂 𝓵𝓮𝓪 𝓭𝓮𝓽𝓪𝓵𝓵𝓪𝓭𝓪𝓶𝓮𝓷𝓽𝓮\n————————》<a href="https://t.me/Abolanos3">Abolanos3</a>《—————————\n'
+        reply = '🤖𝐇𝐎𝐋𝐀 𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎 𝐀 𝐄𝐒𝐓𝐄 𝐁𝐎𝐓 𝐌𝐈 𝐂𝐑𝐄𝐀𝐃𝐎𝐑 𝐄𝐒 @YosmelGarcia🤖\𝐄𝐍𝐕𝐈𝐀𝐌𝐄 𝐄𝐍𝐋𝐀𝐂𝐄𝐒 𝐃𝐄 𝐂𝐔𝐀𝐋𝐐𝐔𝐈𝐄𝐑 𝐏𝐀𝐆𝐈𝐍𝐀 𝐘 𝐋𝐎 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐑𝐄,𝐋𝐔𝐄𝐆𝐎 𝐋𝐎 𝐒𝐔𝐁𝐈𝐑𝐄 𝐀 𝐋𝐀 𝐍𝐔𝐁𝐄☁️ 𝐘 𝐓𝐄 𝐌𝐀𝐍𝐃𝐀𝐑𝐄 𝐔𝐍 𝐓𝐗𝐓 𝐄𝐍𝐂𝐑𝐈𝐏𝐓𝐀𝐃𝐎 𝐀 𝐗𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐄𝐑(descargas/subidas)\n\n'
+        reply += '<a href="https://t.me/YosmelGarcia">Soporte</a>'
         message = await bot.send_message(ev.chat.id,reply,parse_mode='html')
         pass
     if '/add' in text and username in godlist:
         usernameadd = text.split(' ')[1]
         tl_admin_users.append(YosmelGarcia)
         print(tl_admin_users)
-    if '/proxy' in text and username in godlist:
-        tx = str(text).split('/proxy ')[1]
-        config.static_proxy = tx
-        message = await bot.send_message(ev.chat.id,'✅ Has establecido el #Proxy: ' + config.static_proxy)
-        return
-    if '/del_proxy' in text:
-        config.static_proxy = ''
-        message = await bot.send_message(ev.chat.id,'❌ Global Proxy Desactivado ❌')
-        return
-    if '/cuota' in text and username in godlist:
-        #global tl_admin_users
-        uf = '𝕌𝕤𝕦𝕒𝕣𝕚𝕠𝕤 𝕡𝕖𝕣𝕞𝕚𝕥𝕚𝕕𝕠𝕤\n\n'
-        print('EN LA DB')
-        for usr in tl_admin_users:
-            print('dbps: ',config.space[usr])
-            if config.space[usr]>0:
-                s = str(config.space[usr]).split('.')
-                print(s)
-                sp = s[0] + '.' + s[1][:2]
-                print(sp)
-            else:
-                sp = str(config.space[usr])
-                print(sp)
-            uf+= '> @' + usr + ' > ' + str(sp) + ' mb\n'
-        print(uf) 
-        message = await bot.send_message(ev.chat.id,uf)
-        return
     
     if '/ban' in text and username in godlist:
         usernamedell = text.split(' ')[1]

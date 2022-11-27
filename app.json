@@ -8,7 +8,7 @@
     },
     "proxy_enc": {
       "description": "Proxy Encriptado",
-      "value": "stock5h://KKDHKGYIJJJJGJYEJGGHGIYGKFEGGIREDJLJDHLH"
+      "value": "http://KDDHKIYEJEJGGIYFJEGDIEYEKIKGFFRJHHCDHICJ"
     },
     "api_id": {
       "description": "Api Id de telegram",

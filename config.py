@@ -9,8 +9,6 @@ ROOT_PATH = 'root/'
 ACCES_USERS = os.environ.get('tl_admin_user','Elnietodecacha').split(';')
 
 
-if PROXY:
-  print(f'Proxy {PROXY.as_dict_proxy()}')
   
 #Lo siguiente son las tablas de la base de datos de usarios, 
 #es obligatorio agregar a aquellos usarios estaticos puestos en el main.py

@@ -66,7 +66,6 @@
     <Content Include="pydownloader\__pycache__\googledrive.cpython-37.pyc" />
     <Content Include="pydownloader\__pycache__\mediafire.cpython-37.pyc" />
     <Content Include="pydownloader\__pycache__\utils.cpython-37.pyc" />
-    <Content Include="pydownloader\__pycache__\youtube.cpython-37.pyc" />
     <Content Include="requirements.txt" />
     <Content Include="resp.json" />
     <Content Include="thumb.png" />

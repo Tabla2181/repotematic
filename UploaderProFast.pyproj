@@ -41,7 +41,6 @@
     <Compile Include="pydownloader\megacli\_.py" />
     <Compile Include="pydownloader\tltdownloader.py" />
     <Compile Include="pydownloader\utils.py" />
-    <Compile Include="pydownloader\youtube.py" />
     <Compile Include="rarfile.py" />
     <Compile Include="root\readme.txt">
       <SubType>Code</SubType>
